@@ -1,0 +1,132 @@
+* {
+  border: 0 solid red; /*feito para vizualizar o tamanho do body*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-size: 100% auto;
+}
+body {
+  background: url("./assets/bg.png") no-repeat center center fixed;
+}
+body *,:root {
+  font-family: "Inter";
+  line-height: 160%;
+}
+
+header {
+  padding-top: 1px;
+  text-align: center;
+}
+
+header img {
+  width: 20rem;
+  height: 15rem;
+  max-width: 25rem;
+  margin: 1rem;
+} /*1 rem = 16px, logo = 400px*/
+
+main {
+  max-width: 35rem;
+  width: 90%;
+  margin: 10px auto;
+  border: 0px solid red;
+}
+
+section {
+   background-image: linear-gradient(90deg, #001aff 2%, #00ff9d 48%, #9900ff 100%);
+  border-radius: 0.625rem;
+  padding-top: 4px;
+}
+
+section > div {
+  padding: 1rem;
+  padding-top: 1rem;
+  border-radius: 0.5rem;
+  background-color: #faf8f8;
+}
+
+section h2 {
+  letter-spacing: -0.47px;
+}
+
+section p {
+  letter-spacing: -0.18px;
+  color: #404042
+}
+/*Animações*/
+
+main section{ 
+opacity: 0;
+transform: translateY(-32px);
+
+animation-name: appear;
+animation-duration: 1s;
+animation-fill-mode: forwards;
+}
+
+@keyframes appear {
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+form {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0;
+}
+
+input, select {
+all: unset;
+border: 2px solid #404042;
+border-radius: 0.5rem;
+padding: 0.650rem;
+font-size: 0.875rem;;
+}
+
+input {
+  flex: 0.99;
+}
+
+button {
+  width:100%;
+  border: 0;
+  background-image: linear-gradient(90deg, #001aff 2%, #00ff9d 48%, #9900ff 100%);
+  padding: 0.675rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.12px;
+
+  transition: all 0.3s;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: translateY(2px);
+  box-shadow: 0 5px 1rem rgb(114, 2, 243);
+}
+
+button:disabled {
+  transition: initial;
+  transform: initial;
+  box-shadow: initial;
+  cursor: not-allowed;
+  color: black;
+}
+
+.loading {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}

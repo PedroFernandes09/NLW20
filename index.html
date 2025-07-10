@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header>
+    <img src="./assets/eSports.png" alt="logo Crossfire">
+    </header>
+
+<main>
+  <section>
+    <div>
+<h2>Assistente de Meta</h2>
+<p>Pergunte sobre ajudas nos seus jogos</p>
+
+<form id="form">
+  <input id="apiKey" type="password" placeholder="Informe a API KEY da Gemini" required autocomplete="current-password">
+
+  <select id="gameSelect">
+    <option value="">Selecione um Jogo</option>
+    <option value="Valorant">Valorant</option>
+    <option value="LOL">League Of Legends</option>
+    <option value="csgo">CS:GO</option>
+  
+  </select>
+  <input id="questionInput" type="text" placeholder="Ex: Melhor Duelista para o mapa Ascent" required>
+  <button id="askButton">
+    Perguntar
+  </button>
+</form>
+<div id="AiResponse">
+  <div class="response-content">
+
+  </div>
+</div>
+  </section>
+</main>
+<script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+<script src = "./script.js"></script>
+</body>
+</html>
