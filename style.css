@@ -121,8 +121,30 @@ button:disabled {
   color: black;
 }
 
+#aiResponse {
+  margin-top: 1.25rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background-color: #6c84d162;
+  color: #404042;
+  border-left: 3px solid #001aff;
+  border-right: 3px solid #001aff;
+}
+
+#aiResponse ul {
+  padding-left: 1.5rem;
+}
+
+#aiResponse p {
+  color: black;
+}
+
 .loading {
   animation: pulse 1s infinite;
+}
+
+.hidden {
+  display: none;
 }
 
 @keyframes pulse {

@@ -5,7 +5,7 @@ const askButton = document.getElementById('askButton')
 const aiResponse = document.getElementById('aiResponse')
 const form = document.getElementById('form')
 
-const markdownConverter = (text) => {
+const markdownToHtml = (text) => {
   const converter = new showdown.Converter()
   return converter.makeHtml(text)
 }
@@ -15,12 +15,27 @@ const perguntarIA = async (question, game, apiKey) => {
  const geminiURL = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}` 
  const pergunta = `
 Você é um especialista em ${game}. Responda a pergunta de forma clara e objetiva, sem rodeios. Pergunta: ${question}
+## Regras
+- Considere a data atual ${new Date().toLocaleDateString()}
+- Faça pesquisas Atualizadas na internet sobre o patch atual. baseando-se na data atual.
+- Se você não souber a resposta, diga que não sabe.
+- Nunca responda itens que você não tenha certeza de que existe no patch atual.
+- Quando o usuário perguntar sobre o jogo Crossfire, você irá se referir ao Crossfire Brasil. Do site https://crossfire.z8games.com.br/
+- Nunca fale sobre o jogo Crossfire Global, apenas Crossfire Brasil.
+- A reposta deve ser única, sem alterações após a resposta.
+- Quando o usuário perguntar sobre o jogo Crossfire, você irá também buscar respostas de sua duvida no forum do jogo Crossfire Brasil, localizado em https://br.forum.z8games.com
+
  `
  const contents = [{
+  role: "user",
   parts: [{
     text: pergunta
   }]
  }]
+
+ const tools = [{
+  google_search: {}
+  }]
 
  //chamada API
  const response = await fetch(geminiURL, {
@@ -29,7 +44,8 @@ Você é um especialista em ${game}. Responda a pergunta de forma clara e objeti
      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      contents
+      contents,
+      tools
 })
 })
 
