@@ -57,7 +57,7 @@ const EnviarFormulario = async (event) => {
 // perguntar para a IA
 const text = await perguntarIA(question, game, apiKey)
 aiResponse.querySelector('.response-content').innerHTML = markdownToHtml(text)
-
+aiResponse.classList.remove('hidden')
   } catch (error) {
 console.log('Erro :', error)
 } finally {
